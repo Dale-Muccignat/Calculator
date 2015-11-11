@@ -1,0 +1,24 @@
+BoxLayout:
+    orientation: "vertical"
+    Label:
+        id: status_label
+        halign: "center"
+    Spinner:
+        id: spinner
+        text: "Choose Operation"
+        values: app.operations_list.keys()
+        on_text: app.change_operation(spinner.text)
+    BoxLayout:
+        orientation: "horizontal"
+        TextInput:
+            id: text_input_left
+            multiline: False
+        TextInput:
+            id: text_input_right
+            multiline: False
+    Button:
+        id: calculate_button
+        text: "Calculate!"
+        on_press: app.calculate(text_input_left.text, text_input_right.text)
+    Label:
+        id: result_label
